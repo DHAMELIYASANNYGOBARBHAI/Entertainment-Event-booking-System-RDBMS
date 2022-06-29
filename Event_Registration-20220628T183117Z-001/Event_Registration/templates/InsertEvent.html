@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://i.pinimg.com/originals/0e/60/68/0e6068eb08dddb94950bbb177abf1c52.jpg");  
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+        }
+        footer{
+            margin-top: 400px;
+        }
+    </style> 
+    <title>Insert Event</title>
+
+</head>
+<body>
+    <center>
+        <h1> Insert Event data </h1>
+        <hr/>
+        <form  method="POST">
+            {% csrf_token %}
+        <table border="1" bgcolor="lightgreen">
+            <tr>
+                <td> Event ID </td>
+                <td> <input type="number" placeholder="Enter event ID" name="event_id" > </td>
+            </tr>
+            <tr>
+                <td> Event Type ID </td>
+                <td> <input type="number" placeholder="Enter event type id" name="e_type_id" > </td>
+            </tr>
+            <tr>
+                <td> Event Name </td>
+                <td> <input type="text" placeholder="Enter event name" name="e_name" > </td>
+            </tr>
+            <tr>
+                <td> Event Date </td>
+                <td> <input type="date" placeholder="Enter event date" name="e_date" >  </td>
+            </tr>
+            <tr>
+                <td> Event Size </td>
+                <td> <input type="number" placeholder="Enter event size" name="e_size" > </td>
+            </tr>
+            <tr>
+                <td> Event address line 1 </td>
+                <td> <input type="text" placeholder="Enter address line 1" name="address_line_1" > </td>
+            </tr>
+            <tr>
+                <td> Event address line 2 </td>
+                <td> <input type="text" placeholder="Enter address line 2" name="address_line_2" > </td>
+            </tr>
+            <tr>
+                <td> Event Pincode </td>
+                <td> <input type="number" placeholder="Enter pincode" name="pincode" > </td>
+            </tr>
+            <tr>
+                <td> Event manager </td>
+                <td> <input type="number" placeholder="Enter event manager" name="e_manager" > </td> 
+            </tr>
+            <tr>
+                <td><input type="submit" value="insert"/>
+                <td>
+                    {% if messages %}
+                    {%for mess in messages%}
+                    <b style="color:green;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>  
+        <a href="{% url 'showevent' %}"> Home Page</a>      
+    </form>
+    </center>
+</body>
+</html>

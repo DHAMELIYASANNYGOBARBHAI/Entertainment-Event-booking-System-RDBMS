@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://i.pinimg.com/originals/0e/60/68/0e6068eb08dddb94950bbb177abf1c52.jpg");  
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+        }
+        footer{
+            margin-top: 400px;
+        }
+    </style> 
+    <title>Edit customer</title>
+
+</head>
+<body>
+    <center>
+        <h1> Edit Customer </h1>
+        <hr/>
+        <form method="POST" action="/Update/{{CustModel.c_id}}">
+            {% csrf_token %}
+        <table border="1" bgcolor="lightgreen">
+            <tr>
+            <td> Customer ID </td>
+            <td> <input type="number" name="c_id" value="{{CustModel.c_id}}" readonly > </td>
+            </tr>
+            <tr>
+                <td> Customer First Name </td>
+                <td> <input type="text" name="first_name" value="{{CustModel.first_name}}" > </td>
+            </tr>
+            <tr>
+                <td> Customer Last Name </td>
+                <td> <input type="text" name="last_name" value="{{CustModel.last_name}}" > </td>
+            </tr>
+            <tr>
+                <td> Customer Email adress </td>
+                <td> <input type="text" name="c_email" value="{{CustModel.c_email}}" > </td>
+            </tr>
+            <tr>
+                <td> Customer birth date </td>
+                <td> <input type="date" name="c_Bdate" value="{{CustModel.c_Bdate}}" > </td>
+            </tr>
+            <tr>
+                <td> Customer phone number </td>
+                <td> <input type="number" name="c_phno" value="{{CustModel.c_phno}}" > </td>
+            </tr>
+            <tr>
+                <td> Customer password </td>
+                <td> <input type="text" name="password" value="{{CustModel.password}}" > </td>
+            </tr>
+            <tr>
+                <td> Customer age </td>
+                <td> <input type="number" name="age" value="{{CustModel.age}}" > </td> 
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td> {% if messages %}
+                    {%for mess in messages%}
+                    <b style="color:black;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <a href="{% url 'showcust' %}"> Home Page</a>
+        </form>
+    </center>
+</body>
+</html>

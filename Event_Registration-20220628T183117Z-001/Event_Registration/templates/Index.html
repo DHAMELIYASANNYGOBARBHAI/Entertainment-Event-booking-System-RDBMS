@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://i.pinimg.com/originals/0e/60/68/0e6068eb08dddb94950bbb177abf1c52.jpg");  
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+        }
+        footer{
+            margin-top: 400px;
+        }
+    </style> 
+    <title>Customer </title>
+
+</head>
+<body>
+    <center>
+        <h1 bgcolor="white"> Show Customer Data </h1>
+        <hr/>
+        <table  bgcolor="lightblue">
+            <td>
+            <a href="{% url 'InsertTmp' %}"> create new employe</a>
+            </td>
+        </table>
+        <table border="1" bgcolor="lightyellow">
+            <tr>
+                <th> customer id</th>
+                <th> first name</th>
+                <th> last name</th>
+                <th> email ID</th>
+                <th> birth date</th>
+                <th> phone no</th>
+                <th> password</th>
+                <th> age</th>
+            </tr>
+            {%for result in data%}
+            <tr>
+                <td> {{result.c_id}} </td>
+                <td> {{result.first_name}} </td>
+                <td> {{result.last_name}} </td>
+                <td> {{result.c_email}} </td>
+                <td> {{result.c_Bdate}} </td>
+                <td> {{result.c_phno}} </td>
+                <td> {{result.password}} </td>
+                <td> {{result.age}} </td>
+                <td> <a href="Edit/{{result.c_id}}">Edit </a></td>
+                <td> <a href="Delete/{{result.c_id}}" onclick="return confirmation('Are you sure to delete?')">delete</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://i.pinimg.com/originals/0e/60/68/0e6068eb08dddb94950bbb177abf1c52.jpg");  
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+        }
+        footer{
+            margin-top: 400px;
+        }
+    </style> 
+    <title>Edit Eventy</title>
+
+</head>
+<body>
+    <center>
+        <h1> Edit Event data </h1>
+        <hr/>
+        <form method="POST" action="/Updateevent/{{EventModel.event_id}}">
+            {% csrf_token %}
+        <table border="1" bgcolor="lightgreen">
+            <tr>
+            <td> Event ID </td>
+            <td> <input type="number" name="event_id" value="{{EventModelent_id}}" readonly > </td>
+            </tr>
+            <tr>
+                <td> Event Type ID </td>
+                <td> <input type="number" name="e_type_id" value="{{EventModel.e_type_id}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Name </td>
+                <td> <input type="text" name="e_name" value="{{EventModell.e_name}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Date </td>
+                <td> <input type="date" name="e_date" value="{{EventModell.e_date}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Size </td>
+                <td> <input type="number" name="e_size" value="{{EventModell.e_size}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Address line 1 </td>
+                <td> <input type="text" name="address_line_1" value="{{EventModel.address_line_1}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Address line 2 </td>
+                <td> <input type="text" name="address_line_2" value="{{EventModel.address_line_2}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Pincode </td>
+                <td> <input type="number" name="pincode" value="{{EventModel.pincode}}" > </td>
+            </tr>
+            <tr>
+                <td> Event Manager </td>
+                <td> <input type="number" name="e_manager" value="{{EventModel.e_manager}}" > </td> 
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td> {% if messages %}
+                    {%for mess in messages%}
+                    <b style="color:black;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <a href="{% url 'showevent' %}"> Home Page</a>
+        </form>
+    </center>
+</body>
+</html>

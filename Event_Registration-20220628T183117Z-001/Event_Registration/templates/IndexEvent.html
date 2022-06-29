@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://i.pinimg.com/originals/0e/60/68/0e6068eb08dddb94950bbb177abf1c52.jpg");  
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+        }
+        footer{
+            margin-top: 400px;
+        }
+    </style> 
+    <title>Event</title>
+
+</head>
+<body>
+    <center>
+        <h1> Show Event Data </h1>
+        <hr/>
+        <table bgcolor="lightblue">
+            <th>
+            <a href="{% url 'Insertevent' %}"> create new Event</a>
+            </th>
+        </table>
+        <table border="1" bgcolor="lightgreen">
+            <tr>
+                <th> event id</th>
+                <th> event type id</th>
+                <th> event name</th>
+                <th> event date</th>
+                <th> event size</th>
+                <th> address line 1</th>
+                <th> address line 2</th>
+                <th> pincode</th>
+                <th> event manager</th>
+            </tr>
+            {%for result in data%}
+            <tr>
+                <td> {{result.event_id}} </td>
+                <td> {{result.e_type_id}} </td>
+                <td> {{result.e_name}} </td>
+                <td> {{result.e_date}} </td>
+                <td> {{result.e_size}} </td>
+                <td> {{result.address_line_1}} </td>
+                <td> {{result.address_line_2}} </td>
+                <td> {{result.pincode}} </td>
+                <td> {{result.e_manager}} </td>
+                <td> <a href="Edit/{{result.event_id}}">Edit </a></td>
+                <td> <a href="Delete/{{result.event_id}}" onclick="return confirmation('Are you sure to delete?')">delete</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

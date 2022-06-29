@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image:url("https://i.pinimg.com/originals/0e/60/68/0e6068eb08dddb94950bbb177abf1c52.jpg");  
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+        }
+        footer{
+            margin-top: 400px;
+        }
+    </style> 
+    <title>Query 1</title>
+</head>
+<body>
+    <center>
+        <table bgcolor="lightblue">
+            <TH>
+            <h1>Show 18+ customers</h1>
+            </TH>   
+        </table>
+
+        <table border="1" bgcolor="lightgreen">
+            <tr>
+                <th> customer id</th>
+                <th> first name</th>
+                <th> last name</th>
+                <th> email ID</th>
+                <th> birth date</th>
+                <th> phone no</th>
+                <th> password</th>
+                <th> age</th>
+            </tr>
+            {% for result in data %}
+            <tr>
+                <td> {{result.0}} </td>
+                <td> {{result.1}} </td>
+                <td> {{result.2}} </td>
+                <td> {{result.3}} </td>
+                <td> {{result.4}} </td>
+                <td> {{result.5}} </td>
+                <td> {{result.6}} </td>
+                <td> {{result.7}} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>
